@@ -6,7 +6,6 @@
     indeedApp.apiUrl = 'http://api.indeed.com/ads/apisearch?'
 
 
-
     // Collect user input
     indeedApp.collectInfo = function() {
 
