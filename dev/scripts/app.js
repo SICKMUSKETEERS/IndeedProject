@@ -25,7 +25,7 @@ console.log("working");
                     publisher: indeedApp.apiKey,
                     v: 2,
                     format: 'json',
-                    q: 'web developer',
+                    q: 'javascript',
                     l: 'toronto',
                     sort: 'default',
                     radius: 25,
@@ -50,6 +50,7 @@ console.log("working");
 
     // Display data on the page
     indeedApp.displayInfo = function(jobs) {
+        //for each job return title, company,city,state,description and date:
         jobs.forEach(function(job){
             var jobTitle = job.jobtitle;
             var company = job.company;
@@ -57,8 +58,13 @@ console.log("working");
             var state = job.state;
             var shortDes = job.snippet;
             var datePosted = job.formattedRelativeTime;
-            console.log(jobTitle,company,city,state,shortDes,datePosted);
+            //generate html
+            var jobTitleEl = $('<h3>').addClass('jobTitle').html(`${jobTitle}`);
+            var companyEl = $('<h4>').addClass('company').html(`${company}`);
+            //display on html
+            $('.results').append(jobTitleEl,companyEl)
         })
+
     }
 
     // Start app
