@@ -130,5 +130,5 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   margin: 0;
   padding: 0; }
 
-body {
-  color: #555; }
+h3.jobTitle {
+  text-transform: capitalize; }
