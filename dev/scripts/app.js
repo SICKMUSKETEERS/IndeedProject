@@ -2,9 +2,9 @@ console.log("working");
  // Create app namespace to hold all methods
     var indeedApp = {};
 
-	// indeedApp.apiKey = 1211867702868069
+	indeedApp.apiKey = '1211867702868069'
     indeedApp.apiUrl = 'http://api.indeed.com/ads/apisearch'
-    indeedApp.apiKey = 8632706850900734;
+
 
 
     // Collect user input
@@ -22,7 +22,7 @@ console.log("working");
             data: {
                 reqUrl: indeedApp.apiUrl,
                 params: {
-                    publisher:  indeedApp.apiKey,
+                    publisher: indeedApp.apiKey,
                     v: 2,
                     format: 'json',
                     q: 'web developer',
@@ -43,17 +43,28 @@ console.log("working");
         .then(function(res) {
             var data = res.results;
             console.log(data);
+            indeedApp.displayInfo(data);
+
         });
     }
 
     // Display data on the page
-    indeedApp.displayInfo = function() {
-
+    indeedApp.displayInfo = function(jobs) {
+        jobs.forEach(function(job){
+            var jobTitle = job.jobtitle;
+            var company = job.company;
+            var city = job.city;
+            var state = job.state;
+            var shortDes = job.snippet;
+            var datePosted = job.formattedRelativeTime;
+            console.log(jobTitle,company,city,state,shortDes,datePosted);
+        })
     }
 
     // Start app
     indeedApp.init = function() {
         indeedApp.getInfo();
+        indeedApp.displayInfo();
     }
 
     $(function() {
