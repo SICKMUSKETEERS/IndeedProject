@@ -3,7 +3,7 @@ console.log("working");
     var indeedApp = {};
 
 	indeedApp.apiKey = '1211867702868069'
-    indeedApp.apiUrl = 'http://api.indeed.com/ads/apisearch?'
+    indeedApp.apiUrl = 'http://api.indeed.com/ads/apisearch'
 
 
     // Collect user input
@@ -21,7 +21,7 @@ console.log("working");
             data: {
                 reqUrl: indeedApp.apiUrl,
                 params: {
-                    key: indeedApp.apiKey,
+                    publisher: indeedApp.apiKey,
                     v: 2,
                     format: 'json',
                     q: 'web developer',
@@ -36,27 +36,34 @@ console.log("working");
                     filter: 1,
                     latlong: 1,
                     co: 'ca'
-                },
+                }
             }
         })
         .then(function(res) {
             // indeedApp.allResults = 
             var data = res.results;
             console.log(data);
-
-            //  indeedapp.displayInfo();
-            // console.log('I did it!', res);
+            indeedApp.displayInfo(data);
         });
     }
 
     // Display data on the page
-    indeedApp.displayInfo = function() {
-
+    indeedApp.displayInfo = function(jobs) {
+        jobs.forEach(function(job){
+            var jobTitle = job.jobtitle;
+            var company = job.company;
+            var city = job.city;
+            var state = job.state;
+            var shortDes = job.snippet;
+            var datePosted = job.formattedRelativeTime;
+            console.log(jobTitle,company,city,state,shortDes,datePosted);
+        })
     }
 
     // Start app
     indeedApp.init = function() {
         indeedApp.getInfo();
+        indeedApp.displayInfo();
     }
 
     $(function() {
