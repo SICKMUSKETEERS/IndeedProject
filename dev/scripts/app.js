@@ -6,6 +6,7 @@ console.log("working");
     indeedApp.apiUrl = 'http://api.indeed.com/ads/apisearch'
 
 
+
     // Collect user input
     indeedApp.collectInfo = function() {
 
@@ -40,10 +41,10 @@ console.log("working");
             }
         })
         .then(function(res) {
-            // indeedApp.allResults = 
             var data = res.results;
             console.log(data);
             indeedApp.displayInfo(data);
+
         });
     }
 
