@@ -2,7 +2,7 @@ console.log("working");
  // Create app namespace to hold all methods
     var indeedApp = {};
 
-	indeedApp.apiKey = '1211867702868069'
+    indeedApp.apiKey = '1211867702868069'
     indeedApp.apiUrl = 'http://api.indeed.com/ads/apisearch'
 
 
@@ -42,9 +42,7 @@ console.log("working");
         })
         .then(function(res) {
             var data = res.results;
-            console.log(data);
             indeedApp.displayInfo(data);
-
         });
     }
 
@@ -61,11 +59,12 @@ console.log("working");
             //generate html
             var jobTitleEl = $('<h3>').addClass('jobTitle').html(`${jobTitle}`);
             var companyEl = $('<h4>').addClass('company').html(`${company}`);
+            var locationEl = $('<h4>').addClass('location').html(`${city}, ${state}`);
+            var shortDesEl = $('<p>').addClass('shortDes').html(`${shortDes}`);
+            var dateEl = $('<p>').addClass('date').html(`${datePosted}`);
             //display on html
-            $('.results').append(jobTitleEl,companyEl)
-        
+            $('.results').append(dateEl,jobTitleEl,companyEl,locationEl,shortDesEl)
         })
-    
     }
 
     // Start app
