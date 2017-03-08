@@ -71,6 +71,10 @@ console.log("working");
     indeedApp.init = function() {
         indeedApp.getInfo();
         indeedApp.displayInfo();
+
+        $('form').on('submit', function() {
+            
+        });
     }
 
     $(function() {
