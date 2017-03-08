@@ -22,6 +22,7 @@
     			format: 'json'
     		}
     	}).then(function(res) {
+            indeedapp.displayInfo();
     		console.log('I did it!', res);
     	});	
 
