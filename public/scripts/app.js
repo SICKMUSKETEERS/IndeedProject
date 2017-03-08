@@ -7,13 +7,15 @@ var indeedApp = {};
 indeedApp.apiKey = '1211867702868069';
 indeedApp.apiUrl = 'http://api.indeed.com/ads/apisearch';
 
-// Collect user input
-indeedApp.collectInfo = function () {};
+// // Collect user input
+// indeedApp.collectInfo = function() {
+
+// }
 
 // Make AJAX request with user inputted data
-indeedApp.getInfo = function () {
+indeedApp.getInfo = function (location, title) {
 
-    $.ajax({
+    indeedApp.allJobs = $.ajax({
         url: 'http://proxy.hackeryou.com',
         dataType: 'json',
         method: 'GET',
@@ -23,8 +25,8 @@ indeedApp.getInfo = function () {
                 publisher: indeedApp.apiKey,
                 v: 2,
                 format: 'json',
-                q: 'javascript',
-                l: 'toronto',
+                q: title,
+                l: location,
                 sort: 'default',
                 radius: 25,
                 st: 'jobsite',
@@ -32,7 +34,7 @@ indeedApp.getInfo = function () {
                 start: 0,
                 limit: 10,
                 fromage: 14,
-                filter: 1,
+                filter: 0,
                 latlong: 1,
                 co: 'ca'
             }
@@ -45,8 +47,12 @@ indeedApp.getInfo = function () {
 
 // Display data on the page
 indeedApp.displayInfo = function (jobs) {
+    if (jobs.length < 1) {
+        console.log('no jobs');
+    }
     //for each job return title, company,city,state,description and date:
     jobs.forEach(function (job) {
+        // console.log("job", job);
         var jobTitle = job.jobtitle;
         var company = job.company;
         var city = job.city;
@@ -64,12 +70,23 @@ indeedApp.displayInfo = function (jobs) {
     });
 };
 
+indeedApp.events = function () {
+
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        $('.results').empty();
+        var location = $('#location').val();
+        var title = $('#title').val();
+        indeedApp.location = location;
+        indeedApp.title = title;
+        indeedApp.getInfo(location, title);
+        console.log(indeedApp.title, indeedApp.location);
+    });
+};
+
 // Start app
 indeedApp.init = function () {
-    indeedApp.getInfo();
-    indeedApp.displayInfo();
-
-    $('form').on('submit', function () {});
+    indeedApp.events();
 };
 
 $(function () {
