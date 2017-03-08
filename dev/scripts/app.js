@@ -60,7 +60,7 @@ console.log("working");
             //generate html
             var jobTitleEl = $('<h3>').addClass('jobTitle').html(`${jobTitle}`);
             var companyEl = $('<h4>').addClass('company').html(`${company}`);
-            //display on html:
+            //display on html
             $('.results').append(jobTitleEl,companyEl)
         })
 
