@@ -63,8 +63,9 @@ console.log("working");
             var companyEl = $('<h4>').addClass('company').html(`${company}`);
             //display on html
             $('.results').append(jobTitleEl,companyEl)
+        
         })
-
+    
     }
 
     // Start app
