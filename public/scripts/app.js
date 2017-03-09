@@ -27,12 +27,12 @@ indeedApp.getInfo = function (location, title) {
                 format: 'json',
                 q: title,
                 l: location,
-                sort: 'default',
+                sort: 'date',
                 radius: 25,
                 st: 'jobsite',
                 jt: 'fulltime',
                 start: 0,
-                limit: 15,
+                limit: 10,
                 fromage: 14,
                 filter: 0,
                 latlong: 1,
@@ -61,17 +61,19 @@ indeedApp.displayInfo = function (jobs) {
         var state = job.state;
         var shortDes = job.snippet;
         var datePosted = job.formattedRelativeTime;
+        var applyUrl = job.url;
+        var lat = job.latitude;
+        var long = job.longitude;
         //generate html
         var jobTitleEl = $('<h3>').addClass('jobTitle').html('' + jobTitle);
         var compLoc = $('<h4>').addClass('location').html(company + ' - ' + city + ', ' + state);
         var shortDesEl = $('<p>').addClass('shortDes').html('' + shortDes);
         var dateEl = $('<p>').addClass('date').html('' + datePosted);
-        // var seeMore = $('button').addClass('seeBtn').html('see more')
+        var apply = $('<a>').text("Apply Now!").addClass('seeBtn').attr('href', applyUrl);
         //display on html
-        $('.results').append(dateEl, jobTitleEl, compLoc, shortDesEl);
+        $('.results').append(dateEl, jobTitleEl, compLoc, shortDesEl, apply);
     });
 };
-
 indeedApp.events = function () {
 
     $('form').on('submit', function (e) {

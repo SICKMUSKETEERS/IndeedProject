@@ -4,9 +4,7 @@ console.log("working");
 
     indeedApp.apiKey = '1211867702868069'
     indeedApp.apiUrl = 'http://api.indeed.com/ads/apisearch'
-
-
-
+   
     // // Collect user input
     // indeedApp.collectInfo = function() {
 
@@ -27,12 +25,12 @@ console.log("working");
                     format: 'json',
                     q: title,
                     l: location,
-                    sort: 'default',
+                    sort: 'date',
                     radius: 25,
                     st: 'jobsite',
                     jt: 'fulltime',
                     start: 0,
-                    limit: 15,
+                    limit: 10,
                     fromage: 14,
                     filter: 0,
                     latlong: 1,
@@ -62,17 +60,19 @@ console.log("working");
                 var state = job.state;
                 var shortDes = job.snippet;
                 var datePosted = job.formattedRelativeTime;
+                var applyUrl = job.url;
+                var lat  = job.latitude;
+                var long = job.longitude;
                 //generate html
                 var jobTitleEl = $('<h3>').addClass('jobTitle').html(`${jobTitle}`);
                 var compLoc = $('<h4>').addClass('location').html(`${company} - ${city}, ${state}`);
                 var shortDesEl = $('<p>').addClass('shortDes').html(`${shortDes}`);
                 var dateEl = $('<p>').addClass('date').html(`${datePosted}`);
-                // var seeMore = $('button').addClass('seeBtn').html('see more')
+                var apply = $('<a>').text("Apply Now!").addClass('seeBtn').attr('href', applyUrl);
                 //display on html
-                $('.results').append(dateEl,jobTitleEl,compLoc,shortDesEl)
+                $('.results').append(dateEl,jobTitleEl,compLoc,shortDesEl,apply)
             })
     }
-
     indeedApp.events = function() {
 
          $('form').on('submit', function(e) {
