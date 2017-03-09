@@ -32,7 +32,7 @@ console.log("working");
                     st: 'jobsite',
                     jt: 'fulltime',
                     start: 0,
-                    limit: 10,
+                    limit: 15,
                     fromage: 14,
                     filter: 0,
                     latlong: 1,
@@ -48,8 +48,10 @@ console.log("working");
 
     // Display data on the page
     indeedApp.displayInfo = function(jobs) {
+        console.log(jobs)
         if (jobs.length < 1) {
-            console.log('no jobs');
+            var noResult = $('<h3>').addClass('error').text(`No results for ${indeedApp.title}. Please try other keyword. Example: Web Developer, Javascript, Web Design`);
+            $('.results').append(noResult);
         }
         //for each job return title, company,city,state,description and date:
             jobs.forEach(function(job){
@@ -62,12 +64,12 @@ console.log("working");
                 var datePosted = job.formattedRelativeTime;
                 //generate html
                 var jobTitleEl = $('<h3>').addClass('jobTitle').html(`${jobTitle}`);
-                var companyEl = $('<h4>').addClass('company').html(`${company}`);
-                var locationEl = $('<h4>').addClass('location').html(`${city}, ${state}`);
+                var compLoc = $('<h4>').addClass('location').html(`${company} - ${city}, ${state}`);
                 var shortDesEl = $('<p>').addClass('shortDes').html(`${shortDes}`);
                 var dateEl = $('<p>').addClass('date').html(`${datePosted}`);
+                // var seeMore = $('button').addClass('seeBtn').html('see more')
                 //display on html
-                $('.results').append(dateEl,jobTitleEl,companyEl,locationEl,shortDesEl)
+                $('.results').append(dateEl,jobTitleEl,compLoc,shortDesEl)
             })
     }
 
