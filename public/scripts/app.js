@@ -49,7 +49,7 @@ indeedApp.getInfo = function (location, title) {
 indeedApp.displayInfo = function (jobs) {
     console.log(jobs);
     if (jobs.length < 1) {
-        var noResult = $('<h3>').addClass('error').text('No results for ' + indeedApp.title + '. Please try other keyword. Example: Web Developer, Javascript, Web Design');
+        var noResult = $('<h3>').addClass('error').text('No results for ' + indeedApp.title + ' in ' + indeedApp.location + '. Please try other keyword or location.');
         $('.results').append(noResult);
     }
     //for each job return title, company,city,state,description and date:
