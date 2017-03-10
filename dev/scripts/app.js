@@ -52,13 +52,15 @@ indeedApp.getGeocode = function() {
     navigator.geolocation.getCurrentPosition(success);
     //send geolocation location to map
     function success(position) {
+        console.log('success');
         indeedApp.centerLat = position.coords.latitude;
         indeedApp.centerLon = position.coords.longitude;
         console.log(position)
-        console.log(indeedApp.centerLat);
-        console.log(indeedApp.centerLon);
+        console.log(typeof indeedApp.centerLat);
+        console.log(typeof indeedApp.centerLon);
         initMap(indeedApp.centerLat,indeedApp.centerLon)
     };
+}
     //send geolocation to input:
   //   function initialize() {
   //   geocoder = new google.maps.Geocoder();
@@ -97,7 +99,7 @@ indeedApp.getGeocode = function() {
 
     // Display data on the page
     indeedApp.displayInfo = function(jobs) {
-        console.log(jobs)
+        console.log(jobs);
         if (jobs.length < 1) {
             var noResult = $('<h3>').addClass('error').text(`No results for ${indeedApp.title} in ${indeedApp.location}. Please try other keyword or location.`);
             $('.results').append(noResult);
@@ -120,7 +122,7 @@ indeedApp.getGeocode = function() {
                 var apply = $('<a>').text("Apply Now!").addClass('seeBtn').attr('href', applyUrl);
                 var showMap = $('<button>').text("Show Map").addClass('showMapBtn').attr('data-lat', job.latitude).attr('data-lon', job.longitude)
                 //display on html
-                $('.results').append(dateEl,jobTitleEl,compLoc,shortDesEl,apply,showMap,);
+                $('.results').append(dateEl,jobTitleEl,compLoc,shortDesEl,apply,showMap);
             })
 
             $('.showMapBtn').on('click', function(){
@@ -135,8 +137,40 @@ indeedApp.getGeocode = function() {
                     position: jobLocation,
                     map: map
                 });
-            })
+
+                  var contentString = '<div id="content">'+
+                              '<div id="siteNotice">'+
+                              '</div>'+
+                              '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+                              '<div id="bodyContent">'+
+                              '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+                              'sandstone rock formation in the southern part of the '+
+                              'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+                              'south west of the nearest large town, Alice Springs; 450&#160;km '+
+                              '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+                              'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+                              'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+                              'Aboriginal people of the area. It has many springs, waterholes, '+
+                              'rock caves and ancient paintings. Uluru is listed as a World '+
+                              'Heritage Site.</p>'+
+                              '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+                              'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+                              '(last visited June 22, 2009).</p>'+
+                              '</div>'+
+                              '</div>';
+
+                  var infowindow = new google.maps.InfoWindow({
+                    content: contentString,
+                    maxWidth: 200
+                  });
+
+                  marker.addListener('click', function() {
+                    console.log("This is clicked")
+                    infowindow.open(map, marker);
+                  });
+                })
     }
+
 
     indeedApp.events = function() {
 
@@ -152,15 +186,17 @@ indeedApp.getGeocode = function() {
         });
     }
 
-        var map;
-        function initMap() {
-          var GeoLo = {lat:  indeedApp.centerLat, lng:  indeedApp.centerLon};
-          map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: indeedApp.centerLat, lng: indeedApp.centerLon},
-            zoom: 10
-        });
+    var map;
+    function initMap() {
 
-        }
+      var GeoLo = {lat:  indeedApp.centerLat, lng:  indeedApp.centerLon};
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: indeedApp.centerLat, lng: indeedApp.centerLon},
+        zoom: 10
+      });
+    }
+
+  
 
     // Start app
     indeedApp.init = function() {
