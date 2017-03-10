@@ -132,3 +132,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 h3.jobTitle {
   text-transform: capitalize; }
+
+#map {
+  height: 50vh; }
