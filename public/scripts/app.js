@@ -47,6 +47,25 @@ indeedApp.getInfo = function (location, title) {
     });
 };
 
+//get location
+
+indeedApp.getGeocode = function () {
+    navigator.geolocation.getCurrentPosition(success);
+    //send geolocation location to map
+    function success(position) {
+        indeedApp.centerLat = position.coords.latitude;
+        indeedApp.centerLon = position.coords.longitude;
+        console.log(position);
+        console.log(indeedApp.centerLat);
+        console.log(indeedApp.centerLon);
+        initMap(indeedApp.centerLat, indeedApp.centerLon);
+    };
+    //send geolocation to input:
+    // function codeLatLng(indeedApp.centerLat, indeedApp.centerLon) {
+
+    // }
+};
+
 // Display data on the page
 indeedApp.displayInfo = function (jobs) {
     console.log(jobs);
@@ -106,22 +125,17 @@ indeedApp.events = function () {
 
 var map;
 function initMap() {
-    var uluru = { lat: -25.363, lng: 131.044 };
+    var GeoLo = { lat: indeedApp.centerLat, lng: indeedApp.centerLon };
     map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8,
-        gestureHandling: 'none'
+        center: { lat: indeedApp.centerLat, lng: indeedApp.centerLon },
+        zoom: 10
     });
-    // var marker = new google.maps.Marker({
-    //   position: uluru,
-    //   map: map
-    // });
 }
-// }
 
 // Start app
 indeedApp.init = function () {
     indeedApp.events();
+    indeedApp.getGeocode();
     // initMap();
 };
 
