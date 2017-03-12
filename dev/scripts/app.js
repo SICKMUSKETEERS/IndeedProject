@@ -94,9 +94,13 @@
             });
 
             $('.closeMap').on('click',function(){
-                $('.mapContainer').css('display', 'none')
+                $('.mapContainer').css('display', 'none');
             });
 
+            $('.map').on('click', function(){
+                $('.mapContainer').css('display', 'none');
+            })
+            
             // $('.showMapBtn').on('click', function(){
             //     var jobCompany = $(this).data('com');
             //     var jobCity = $(this).data('ci')
