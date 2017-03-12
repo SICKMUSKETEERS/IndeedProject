@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald|Roboto);
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block; }
 
@@ -137,14 +138,32 @@ h3.jobTitle {
   height: 50vh; }
 
 iframe {
-  width: 500px;
-  height: 100vh;
-  border: none; }
+  width: 700px;
+  height: 500px;
+  border: 3px solid black; }
+
+.closeMap {
+  float: right;
+  border: none;
+  background: none; }
+
+.exit-modal {
+  font-size: 40px;
+  color: #fff; }
 
 .mapContainer {
   width: 100%;
+  height: 100vh;
   top: 0;
-  right: 0;
   background: rgba(0, 0, 0, 0.8);
   display: none;
   position: fixed; }
+
+.map {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 100vh; }
