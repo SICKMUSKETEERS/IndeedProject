@@ -6,6 +6,7 @@
 	<title>Indeed API</title>
 	<!-- font awesome --> 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<!-- Stylesheet -->
 	<link rel="stylesheet" href="public/styles/style.css">
 	<style>
@@ -20,14 +21,26 @@
 	</style>
 </head>
 <body>
-	<div class="formContainerTop">
+	<div class="formContainerTop animated fadeIn">
 		<h1>Remotely</h1>
-		<form>
+		<form class="formMain">
 			<label for="location">Where?</label>
 			<input type="text" placeholder="Ex: Toronto" name="location" value="Toronto" id="location">
-			<label for="location">Keyword</label>
+			<label for="location">Keyword:</label>
 			<input type="text" placeholder="Ex: Web Developer, javascript etc" name="title" value="Web Developer" id="title">
-			<button type="submit">Submit</button>
+			<div class="sub">
+				<button type="submit" class="submit">Find a job!</button>
+			</div>
+		</form>
+	</div>
+	<div class="formContainerTop animated fadeIn" id="nav" >
+		<h1>Web Dev</h1>
+		<form class="formTop">
+			<label for="location">Where?</label>
+			<input type="text" name="location"  id="locationTop">
+			<label for="location">Keyword:</label>
+			<input type="text" name="title"  id="titleTop">
+			<button type="submit" class="submit">Find a job!</button>
 		</form>
 	</div>
 		<div class="results"></div>

@@ -21,19 +21,21 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	font-size: 20px;
+	animation-duration: 2s;
 }
 
 .formContainerTop {
 	background-color: white;
 	width: 100%;
-	position: fixed; 
-	top: 0;
-	display: flex;
+	display: none;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	padding: 50px;
+	padding: 20px;
 	font-size: 20px;
+	background: #fbfbfb;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.36);
 
 	h1 {
 		width: 35%;
@@ -48,3 +50,27 @@ body {
 	}
 
 }
+
+.formMain input, .formContainerTop input  {
+    padding: 9px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+}
+
+.sub{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+   
+}
+
+button.submit{
+    	background: white;
+    	padding: 9px 15px;
+    	border: 1px solid #d9d9d9;
+    	border-radius: 3px;
+    	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
+    }
+
