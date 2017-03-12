@@ -1,3 +1,18 @@
 .results { 
-	margin-top: 120px;
+	width: 60%;
+	margin: 180px auto 0 auto;
+}
+
+.resultsItem {
+	margin: 40px 0 40px 0;
+	justify-content: center;
+
+
+	p:nth-child(1) {
+		background-color: $grey;
+		color: $white;
+		width: 100px;
+		text-align: center;
+		border-radius: 5px;
+	}
 }
