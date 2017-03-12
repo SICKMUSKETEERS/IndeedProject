@@ -162,6 +162,21 @@ iframe {
       justify-content: center;
   height: 100vh; }
 
+.results {
+  width: 60%;
+  margin: 180px auto 0 auto; }
+
+.resultsItem {
+  margin: 40px 0 40px 0;
+  -ms-flex-pack: center;
+      justify-content: center; }
+  .resultsItem p:nth-child(1) {
+    background-color: #b7b7b7;
+    color: #ffffff;
+    width: 100px;
+    text-align: center;
+    border-radius: 5px; }
+
 body {
   font-family: "Roboto", sans-serif; }
 
@@ -205,6 +220,3 @@ h3.jobTitle {
   .formContainerTop form {
     -ms-flex-pack: center;
         justify-content: center; }
-
-.results {
-  margin-top: 120px; }
