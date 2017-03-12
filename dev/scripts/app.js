@@ -80,7 +80,8 @@
                 var apply = $('<a>').text("Apply Now!").addClass('seeBtn').attr('href', applyUrl);
                 var showMap = $('<button>').text("Show on Map").addClass('showMapBtn').attr('data-lat', job.latitude).attr('data-lon', job.longitude).attr('data-com', job.company).attr('data-ci', job.city)
                 //display on html
-                var resultsContainer = $('<div>').addClass('resultsItem').append(dateEl,jobTitleEl,compLoc,shortDesEl,apply,showMap);
+                var resultsTitleDate = $('<div>').addClass('resultsTitleDate').append(jobTitleEl, dateEl);
+                var resultsContainer = $('<div>').addClass('resultsItem').append(resultsTitleDate,compLoc,shortDesEl,apply,showMap);
                 $('.results').append(resultsContainer);
             });
 

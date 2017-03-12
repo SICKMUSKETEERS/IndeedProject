@@ -9,23 +9,30 @@
 	border-bottom: 1px solid $grey;
 	padding-bottom: 40px;
 
-	p:nth-child(1) {
-		background-color: $grey;
-		color: $white;
-		width: 100px;
-		padding: 2px;
-		text-align: center;
-		border-radius: 5px;
-		margin-bottom: 5px;
+	h3 {
+		font-family: $headingFont;
+		font-size: 2rem;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		padding-bottom: 5px;
 	}
 
-	// p:nth-child(2) {
-	// 	display: block;
+	h4 {
+		color: $black;
+		opacity: 0.5;
+		font-size: 18px;
+		text-transform: uppercase;
+		padding-bottom: 5px;
+	}
+
+	// p {
+	// 	width: 90%;
 	// }
 
 	a {
 		text-decoration: none;
 		background-color: $yellow;
+		text-shadow: 1px 2px 1px $grey;
 		color: $white;
 		border-radius: 100px;
 		padding: 10px;
@@ -42,5 +49,23 @@
 		background: none;
 		padding: 10px;
 		margin-left: 10px;
+	}
+}
+
+
+.resultsTitleDate { 
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	p { // date
+	background-color: $grey;
+	color: $white;
+	width: 100px;
+	padding: 2px;
+	text-align: center;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	float: right;
 	}
 }
