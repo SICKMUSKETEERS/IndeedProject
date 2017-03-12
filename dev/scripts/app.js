@@ -1,4 +1,3 @@
-console.log("working");
  // Create app namespace to hold all methods
     var indeedApp = {};
 
@@ -51,12 +50,8 @@ indeedApp.getGeocode = function() {
     navigator.geolocation.getCurrentPosition(success);
     //send geolocation location to map
     function success(position) {
-        console.log('success');
         indeedApp.centerLat = position.coords.latitude;
         indeedApp.centerLon = position.coords.longitude;
-        console.log(position)
-        console.log(typeof indeedApp.centerLat);
-        console.log(typeof indeedApp.centerLon);
         initMap(indeedApp.centerLat,indeedApp.centerLon)
     };
 }
@@ -70,7 +65,6 @@ indeedApp.getGeocode = function() {
         }
         //for each job return title, company,city,state,description and date:
             jobs.forEach(function(job){
-                // console.log("job", job);
                 var jobTitle = job.jobtitle;
                 var company = job.company;
                 var city = job.city;
@@ -95,6 +89,16 @@ indeedApp.getGeocode = function() {
                 var lat = $(this).data('lat');
                 var lng = $(this).data('lon');
                 var jobLocation = {lat, lng}
+                // test
+                var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+                var location  = new google.maps.LatLng(jobLocation);    // turn coordinates into an object          
+                geocoder.geocode({'latLng': location}, function (results, status) {
+                if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+                var add = results[0].formatted_address;         // if address found, pass to processing function
+                console.log(add)
+                 }
+                });
+
 
                 if (window.marker) {
                     window.marker.setMap(null);
@@ -104,6 +108,9 @@ indeedApp.getGeocode = function() {
                     map: map
                 });
 
+                map.setZoom(15);
+                map.panTo(window.marker.position);
+
                   var contentString = `<div id="content"><h2>${jobCompany}</h2><h3>${jobCity}</h3></div>`;
 
                   var infowindow = new google.maps.InfoWindow({
@@ -112,7 +119,6 @@ indeedApp.getGeocode = function() {
                   });
 
                   marker.addListener('click', function() {
-                    console.log("This is clicked")
                     infowindow.open(map, marker);
                   });
                 })
@@ -129,7 +135,6 @@ indeedApp.getGeocode = function() {
            indeedApp.location = location;
            indeedApp.title = title;
            indeedApp.getInfo(location,title);
-            console.log(indeedApp.title, indeedApp.location);
         });
     }
 
