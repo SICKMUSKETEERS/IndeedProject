@@ -135,3 +135,16 @@ h3.jobTitle {
 
 #map {
   height: 50vh; }
+
+iframe {
+  width: 500px;
+  height: 100vh;
+  border: none; }
+
+.mapContainer {
+  width: 100%;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  position: fixed; }

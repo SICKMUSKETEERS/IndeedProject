@@ -46,15 +46,15 @@
 
     //get location
 
-indeedApp.getGeocode = function() {
-    navigator.geolocation.getCurrentPosition(success);
-    //send geolocation location to map
-    function success(position) {
-        indeedApp.centerLat = position.coords.latitude;
-        indeedApp.centerLon = position.coords.longitude;
-        initMap(indeedApp.centerLat,indeedApp.centerLon)
-    };
-}
+// indeedApp.getGeocode = function() {
+//     navigator.geolocation.getCurrentPosition(success);
+//     //send geolocation location to map
+//     function success(position) {
+//         indeedApp.centerLat = position.coords.latitude;
+//         indeedApp.centerLon = position.coords.longitude;
+//         initMap(indeedApp.centerLat,indeedApp.centerLon)
+//     };
+// }
 
     // Display data on the page
     indeedApp.displayInfo = function(jobs) {
@@ -78,51 +78,65 @@ indeedApp.getGeocode = function() {
                 var shortDesEl = $('<p>').addClass('shortDes').html(`${shortDes}`);
                 var dateEl = $('<p>').addClass('date').html(`${datePosted}`);
                 var apply = $('<a>').text("Apply Now!").addClass('seeBtn').attr('href', applyUrl);
-                var showMap = $('<button>').text("Show Map").addClass('showMapBtn').attr('data-lat', job.latitude).attr('data-lon', job.longitude).attr('data-com', job.company).attr('data-ci', job.city)
+                var showMap = $('<button>').text("Show on Map").addClass('showMapBtn').attr('data-lat', job.latitude).attr('data-lon', job.longitude).attr('data-com', job.company).attr('data-ci', job.city)
                 //display on html
                 $('.results').append(dateEl,jobTitleEl,compLoc,shortDesEl,apply,showMap);
-            })
+            });
+
 
             $('.showMapBtn').on('click', function(){
                 var jobCompany = $(this).data('com');
-                var jobCity = $(this).data('ci')
-                var lat = $(this).data('lat');
-                var lng = $(this).data('lon');
-                var jobLocation = {lat, lng}
-                // test
-                var geocoder  = new google.maps.Geocoder();             // create a geocoder object
-                var location  = new google.maps.LatLng(jobLocation);    // turn coordinates into an object          
-                geocoder.geocode({'latLng': location}, function (results, status) {
-                if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
-                var add = results[0].formatted_address;         // if address found, pass to processing function
-                console.log(add)
-                 }
-                });
+                jobCompany = jobCompany.replace(/ /g, '+');
+                var jobCity = $(this).data('ci');
+                console.log(jobCity)
+                $('iframe').attr(`src`, `https://www.google.com/maps/embed/v1/search?key=AIzaSyBTN4GtBR709ug6SMg-Sbr55JZvv5ctXys&q=${jobCompany}+${jobCity}`)
+                $('.mapContainer').css('display', 'block')
+            });
+
+            $('.closeMap').on('click',function(){
+                $('.mapContainer').css('display', 'none')
+            });
+
+            // $('.showMapBtn').on('click', function(){
+            //     var jobCompany = $(this).data('com');
+            //     var jobCity = $(this).data('ci')
+            //     var lat = $(this).data('lat');
+            //     var lng = $(this).data('lon');
+            //     var jobLocation = {lat, lng}
+            //     // test
+            //     var geocoder  = new google.maps.Geocoder();             // create a geocoder object
+            //     var location  = new google.maps.LatLng(jobLocation);    // turn coordinates into an object          
+            //     geocoder.geocode({'latLng': location}, function (results, status) {
+            //     if(status == google.maps.GeocoderStatus.OK) {           // if geocode success
+            //     var add = results[0].formatted_address;         // if address found, pass to processing function
+            //     console.log(add)
+            //      }
+            //     });
 
 
-                if (window.marker) {
-                    window.marker.setMap(null);
-                }
-                window.marker = new google.maps.Marker({
-                    position: jobLocation,
-                    map: map
-                });
+            //     if (window.marker) {
+            //         window.marker.setMap(null);
+            //     }
+            //     window.marker = new google.maps.Marker({
+            //         position: jobLocation,
+            //         map: map
+            //     });
 
-                map.setZoom(15);
-                map.panTo(window.marker.position);
+            //     map.setZoom(15);
+            //     map.panTo(window.marker.position);
 
-                  var contentString = `<div id="content"><h2>${jobCompany}</h2><h3>${jobCity}</h3></div>`;
+            //       var contentString = `<div id="content"><h2>${jobCompany}</h2><h3>${jobCity}</h3></div>`;
 
-                  var infowindow = new google.maps.InfoWindow({
-                    content: contentString,
-                    maxWidth: 200
-                  });
+            //       var infowindow = new google.maps.InfoWindow({
+            //         content: contentString,
+            //         maxWidth: 200
+            //       });
 
-                  marker.addListener('click', function() {
-                    infowindow.open(map, marker);
-                  });
-                })
-    }
+            //       marker.addListener('click', function() {
+            //         infowindow.open(map, marker);
+            //       });
+            //     })
+    } // display info ends
 
 
     indeedApp.events = function() {
@@ -138,22 +152,22 @@ indeedApp.getGeocode = function() {
         });
     }
 
-    var map;
-    function initMap() {
+    // var map;
+    // function initMap() {
 
-      var GeoLo = {lat:  indeedApp.centerLat, lng:  indeedApp.centerLon};
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: indeedApp.centerLat, lng: indeedApp.centerLon},
-        zoom: 10
-      });
-    }
+    //   var GeoLo = {lat:  indeedApp.centerLat, lng:  indeedApp.centerLon};
+    //   map = new google.maps.Map(document.getElementById('map'), {
+    //     center: {lat: indeedApp.centerLat, lng: indeedApp.centerLon},
+    //     zoom: 10
+    //   });
+    // }
 
   
 
     // Start app
     indeedApp.init = function() {
         indeedApp.events();
-        indeedApp.getGeocode();
+        // indeedApp.getGeocode();
         // initMap();
     }
 
