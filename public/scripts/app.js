@@ -81,7 +81,8 @@ indeedApp.displayInfo = function (jobs) {
         var apply = $('<a>').text("Apply Now!").addClass('seeBtn').attr('href', applyUrl);
         var showMap = $('<button>').text("Show on Map").addClass('showMapBtn').attr('data-lat', job.latitude).attr('data-lon', job.longitude).attr('data-com', job.company).attr('data-ci', job.city);
         //display on html
-        $('.results').append(dateEl, jobTitleEl, compLoc, shortDesEl, apply, showMap);
+        var jobContainer = $('<div>').addClass('resultsItem').append(dateEl, jobTitleEl, compLoc, shortDesEl, apply, showMap);
+        $('.results').append(jobContainer);
     });
 
     $('.showMapBtn').on('click', function () {
@@ -145,11 +146,35 @@ indeedApp.displayInfo = function (jobs) {
 
 indeedApp.events = function () {
 
-    $('form').on('submit', function (e) {
+    $('.formMain').on('submit', function (e) {
         e.preventDefault();
         $('.results').empty();
         var location = $('#location').val();
         var title = $('#title').val();
+        indeedApp.location = location;
+        indeedApp.title = title;
+        indeedApp.getInfo(location, title);
+        // animation fade out
+        var animation = $('.formContainer').addClass('animated zoomOutDown');
+        $.when(animation).done(function () {
+            // display nav
+            $('.formContainerTop').css('display', 'flex');
+            // scroll down
+            var scroll = $('html, body').animate({
+                scrollTop: $("#nav").offset().top
+            }, 1000);
+            // take out title
+            $.when(scroll).done(function () {
+                $('.formContainer').css('display', 'none');
+            });
+        });
+    });
+
+    $('.formTop').on('submit', function (e) {
+        e.preventDefault();
+        $('.results').empty().addClass('animated fadeIn');
+        var location = $('#locationTop').val();
+        var title = $('#titleTop').val();
         indeedApp.location = location;
         indeedApp.title = title;
         indeedApp.getInfo(location, title);
