@@ -11,10 +11,6 @@ body {
 	font-family: $bodyFont;
 }
 
-h3.jobTitle {
-	text-transform: capitalize;
-}
-
 #map{
 	height: 50vh;
 }
@@ -44,9 +40,11 @@ h3.jobTitle {
 		text-align: left;
 		font-family: $headingFont;
 		font-size: 50px;
+		text-transform: uppercase;
 	}
 
 	form { 
 		justify-content: center;
 	}
+
 }
