@@ -1,7 +1,8 @@
 .results { 
-	animation-duration: 2s;
+	animation-delay: 1s;
 	width: 60%;
 	margin: 40px auto 0 auto;
+	display: none;
 }
 
 @media (max-width: 768px) {
@@ -62,10 +63,6 @@
 		}
 	}
 
-	// p {
-	// 	width: 90%;
-	// }
-
 	a {
 		text-decoration: none;
 		background-color: $yellow;
@@ -78,6 +75,8 @@
 		text-align: center;
 		margin-top: 10px;
 		border: 1px solid $yellow;
+		transition:.5s;
+
 	}
 
 	button {
@@ -86,6 +85,7 @@
 		background: none;
 		padding: 10px;
 		margin-left: 10px;
+		transition:.5s;
 	}
 }
 
@@ -105,4 +105,22 @@
 	margin-bottom: 5px;
 	float: right;
 	}
+}
+
+.resultsItem a:hover{
+ box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+ color: black;
+
+}
+// .resultsItem a:after{
+// 	background-image: url('../../assets/work.svg');
+// 	display: block;
+//   	content: ' ';
+//   	 background-size: 28px 28px;
+//   height: 28px;
+//   width: 28px;
+// }
+.resultsItem button:hover{
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+
 }
