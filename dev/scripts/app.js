@@ -93,15 +93,17 @@
                 var jobCity = $(this).data('ci');
                 console.log(jobCity)
                 $('iframe').attr(`src`, `https://www.google.com/maps/embed/v1/search?key=AIzaSyBTN4GtBR709ug6SMg-Sbr55JZvv5ctXys&q=${jobCompany}+${jobCity}`)
-                $('.mapContainer').css('display', 'block')
+                $('.mapContainer').css('display', 'block').addClass('animated fadeIn')
             });
 
             $('.closeMap').on('click',function(){
                 $('.mapContainer').css('display', 'none');
+                $('iframe').attr("src", "");
             });
 
             $('.map').on('click', function(){
                 $('.mapContainer').css('display', 'none');
+                $('iframe').attr("src", "");
             })
 
             // $('.showMapBtn').on('click', function(){
@@ -150,7 +152,7 @@
 
          $('.formMain').on('submit', function(e) {
             e.preventDefault();
-            $('.results').empty();
+            $('.results').empty().css('display', 'block').addClass('animated fadeIn');
            var location = $('#location').val();
            var title = $('#title').val();
            indeedApp.location = location;
@@ -174,7 +176,7 @@
 
          $('.formTop').on('submit', function(e) {
             e.preventDefault();
-            $('.results').empty().addClass('animated fadeIn');
+            $('.results').empty();
            var location = $('#locationTop').val();
            var title = $('#titleTop').val();
            indeedApp.location = location;

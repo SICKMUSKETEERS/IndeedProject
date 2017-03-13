@@ -163,9 +163,10 @@ iframe {
   height: 100vh; }
 
 .results {
-  animation-duration: 2s;
+  animation-delay: 1s;
   width: 60%;
-  margin: 40px auto 0 auto; }
+  margin: 40px auto 0 auto;
+  display: none; }
 
 @media (max-width: 768px) {
   .results {
@@ -216,13 +217,15 @@ iframe {
     width: 8rem;
     text-align: center;
     margin-top: 10px;
-    border: 1px solid #f8d70c; }
+    border: 1px solid #f8d70c;
+    transition: .5s; }
   .resultsItem button {
     border: 1px solid #000000;
     border-radius: 100px;
     background: none;
     padding: 10px;
-    margin-left: 10px; }
+    margin-left: 10px;
+    transition: .5s; }
 
 .resultsTitleDate {
   display: -ms-flexbox;
@@ -240,6 +243,13 @@ iframe {
     border-radius: 5px;
     margin-bottom: 5px;
     float: right; }
+
+.resultsItem a:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  color: black; }
+
+.resultsItem button:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25); }
 
 #nav {
   animation-duration: 2s;
@@ -269,7 +279,17 @@ body {
     font-family: "Oswald", sans-serif;
     font-size: 70px;
     text-transform: uppercase;
-    padding-bottom: 0; }
+    padding-bottom: 0;
+    margin: 5px; }
+
+h3.tagline {
+  color: #f8d70c;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 20px; }
 
 .formContainerTop {
   background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../../assets/navbg.jpg");
@@ -285,8 +305,6 @@ body {
 
 @media (max-width: 900px) {
   .formContainerTop {
-    display: -ms-flexbox;
-    display: flex;
     -ms-flex-direction: column;
         flex-direction: column; }
     .formContainerTop h2 {
@@ -325,8 +343,20 @@ form {
   -ms-flex-pack: center;
       justify-content: center; }
 
+input#title, input#titleTop {
+  background-image: url(../../assets/work.svg);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: 3% 50%; }
+
+input#location, input#locationTop {
+  background-image: url(../../assets/world.svg);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: 3% 50%; }
+
 .formMain input, .formContainerTop input {
-  padding: 10px;
+  padding: 10px 0px 10px 40px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
   border: 1px solid #d9d9d9;
   border-radius: 3px;
@@ -335,11 +365,15 @@ form {
 @media (max-width: 1140px) {
   .formContainerTop input {
     width: 150px;
-    padding: 5px; } }
+    font-size: 17px; } }
 
 @media (max-width: 505px) {
   .formMain input, .formContainerTop input {
-    font-size: 0.8em; } }
+    font-size: 0.8em; }
+  input#location, input#locationTop, input#title, input#titleTop {
+    background-size: 18px; }
+  .formMain input, .formContainerTop input {
+    padding: 10px 0px 10px 25px; } }
 
 input#location, input#locationTop, input#titleTop {
   margin-right: 20px; }
@@ -376,10 +410,15 @@ button.submit {
   padding: 12px 20px;
   margin-top: 10px;
   border: 0;
-  border-radius: 100px;
-  text-shadow: 1px 2px 1px #b7b7b7;
-  background-color: #f8d70c;
-  color: white; }
+  border-radius: 3px;
+  background-color: black;
+  color: white;
+  transition: .5s; }
+
+button.submit:hover {
+  background: #f8d70c;
+  color: black;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3); }
 
 @media (max-width: 1140px) {
   button.submit {

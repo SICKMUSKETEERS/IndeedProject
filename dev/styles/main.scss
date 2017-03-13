@@ -31,7 +31,19 @@ body {
 		font-size: 70px;
 		text-transform: uppercase;
 		padding-bottom: 0;
+		margin: 5px;
 	}
+
+}
+h3.tagline{
+	color: $yellow;
+	text-shadow:1px 1px 3px rgba(0,0,0,.9);
+	letter-spacing:1px;
+	text-transform: uppercase;
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: 20px;
+
 }
 
 .formContainerTop {
@@ -47,7 +59,6 @@ body {
 
 	@media (max-width: 900px) {
 		.formContainerTop {
-			display: flex;
 			flex-direction: column;
 
 			h2 { 
@@ -94,10 +105,23 @@ body {
 		justify-content: center;
 	}
 
+input#title, input#titleTop{
+	background-image: url(../../assets/work.svg);
+	background-size: 25px;
+	background-repeat: no-repeat;
+	background-position: 3% 50%;
+}
+
+input#location, input#locationTop{
+	background-image: url(../../assets/world.svg);
+	background-size: 25px;
+	background-repeat: no-repeat;
+	background-position: 3% 50%;
+}
 
 
 .formMain input, .formContainerTop input  {
-    padding: 10px;
+    padding: 10px 0px 10px 40px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
     border: 1px solid #d9d9d9;
     border-radius: 3px;
@@ -108,7 +132,7 @@ body {
 
 		.formContainerTop input {
 			width: 150px;
-			padding: 5px;
+			font-size: 17px;
 		}
 		
 	}
@@ -117,6 +141,14 @@ body {
 		.formMain input, .formContainerTop input {
 			font-size: 0.8em;
 		}
+		input#location, input#locationTop, input#title, input#titleTop{
+				background-size: 18px;
+
+		}
+		.formMain input, .formContainerTop input{
+			padding: 10px 0px 10px 25px;
+		}
+
 	}
 
 input#location, input#locationTop, input#titleTop{
@@ -145,6 +177,7 @@ input#location, input#locationTop, input#titleTop{
     margin-right: 5px;
 }
 
+
 	@media (max-width: 925px) { 
 
 	.formMain label, .formContainerTop label {
@@ -161,18 +194,21 @@ input#location, input#locationTop, input#titleTop{
 }
 
 button.submit{
-		width: 200px;
-    	background: white;
-    	padding: 12px 20px;
-		margin-top: 10px;
-    	border: 0;
-		border-radius: 100px;
-		text-shadow: 1px 2px 1px $grey;
-    	background-color: $yellow;
-    	color: white;
-    	// box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
+	width: 200px;
+    background: white;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border: 0;
+    border-radius: 3px;
+    background-color: black;
+    color: white;
+    transition:.5s;
     }
-
+button.submit:hover{
+	background: $yellow;
+	color: black;
+	box-shadow: 2px 2px 7px rgba(0,0,0,.3)
+}
     	@media (max-width: 1140px) { 
 
 		button.submit {
