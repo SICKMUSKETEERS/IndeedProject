@@ -165,14 +165,7 @@ iframe {
 .results {
   animation-duration: 2s;
   width: 60%;
-  margin: 180px auto 0 auto; }
-}
-
-#nav {
-  animation-duration: 2s;
-  animation-delay: .5s; }
-
-
+  margin: 40px auto 0 auto; }
 
 .resultsItem {
   margin: 40px 0 40px 0;
@@ -187,8 +180,7 @@ iframe {
     letter-spacing: 1px;
     padding-bottom: 5px; }
   .resultsItem h4 {
-    color: #000000;
-    opacity: 0.5;
+    color: #b7b7b7;
     font-size: 18px;
     text-transform: uppercase;
     padding-bottom: 5px; }
@@ -228,6 +220,10 @@ iframe {
     margin-bottom: 5px;
     float: right; }
 
+#nav {
+  animation-duration: 2s;
+  animation-delay: .5s; }
+
 body {
   font-family: "Roboto", sans-serif; }
 
@@ -246,6 +242,11 @@ body {
   height: 100vh;
   font-size: 20px;
   animation-duration: 2s; }
+  .formContainer h1 {
+    font-family: "Oswald", sans-serif;
+    font-size: 70px;
+    text-transform: uppercase;
+    padding-bottom: 30px; }
 
 .formContainerTop {
   background-color: white;
@@ -272,10 +273,11 @@ body {
         justify-content: center; }
 
 .formMain input, .formContainerTop input {
-  padding: 9px;
+  padding: 10px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
   border: 1px solid #d9d9d9;
-  border-radius: 3px; }
+  border-radius: 30px;
+  color: #b7b7b7; }
 
 .sub {
   display: -ms-flexbox;
@@ -287,8 +289,12 @@ body {
   margin-top: 20px; }
 
 button.submit {
+  width: 200px;
   background: white;
-  padding: 9px 15px;
-  border: 1px solid #d9d9d9;
-  border-radius: 3px;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26); }
+  padding: 15px 20px;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 100px;
+  text-shadow: 1px 2px 1px #b7b7b7;
+  background-color: #f8d70c;
+  color: white; }

@@ -23,6 +23,13 @@ body {
 	height: 100vh;
 	font-size: 20px;
 	animation-duration: 2s;
+
+	h1 { 
+		font-family: $headingFont;
+		font-size: 70px;
+		text-transform: uppercase;
+		padding-bottom: 30px;
+	}
 }
 
 .formContainerTop {
@@ -52,10 +59,11 @@ body {
 }
 
 .formMain input, .formContainerTop input  {
-    padding: 9px;
+    padding: 10px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
     border: 1px solid #d9d9d9;
-    border-radius: 3px;
+    border-radius: 30px;
+    color: $grey;
 }
 
 .sub{
@@ -67,10 +75,15 @@ body {
 }
 
 button.submit{
+		width: 200px;
     	background: white;
-    	padding: 9px 15px;
-    	border: 1px solid #d9d9d9;
-    	border-radius: 3px;
-    	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
+    	padding: 15px 20px;
+		margin-top: 10px;
+    	border: 0;
+		border-radius: 100px;
+		text-shadow: 1px 2px 1px $grey;
+    	background-color: $yellow;
+    	color: white;
+    	// box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
     }
 

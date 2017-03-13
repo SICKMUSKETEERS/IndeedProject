@@ -1,7 +1,7 @@
 .results { 
 	animation-duration: 2s;
 	width: 60%;
-	margin: 180px auto 0 auto;
+	margin: 40px auto 0 auto;
 }
 
 .resultsItem {
@@ -19,8 +19,7 @@
 	}
 
 	h4 {
-		color: $black;
-		opacity: 0.5;
+		color: $grey;
 		font-size: 18px;
 		text-transform: uppercase;
 		padding-bottom: 5px;
