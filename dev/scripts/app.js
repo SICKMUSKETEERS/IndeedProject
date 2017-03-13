@@ -4,11 +4,6 @@
     indeedApp.apiKey = '1211867702868069'
     indeedApp.apiUrl = 'http://api.indeed.com/ads/apisearch'
     indeedApp.googleKey = 'AIzaSyBTN4GtBR709ug6SMg-Sbr55JZvv5ctXys'
-   
-    // // Collect user input
-    // indeedApp.collectInfo = function() {
-
-    // }
 
     // Make AJAX request with user inputted data
     indeedApp.getInfo = function(location, title) {
@@ -46,15 +41,15 @@
 
     //get location
 
-// indeedApp.getGeocode = function() {
-//     navigator.geolocation.getCurrentPosition(success);
-//     //send geolocation location to map
-//     function success(position) {
-//         indeedApp.centerLat = position.coords.latitude;
-//         indeedApp.centerLon = position.coords.longitude;
-//         initMap(indeedApp.centerLat,indeedApp.centerLon)
-//     };
-// }
+    // indeedApp.getGeocode = function() {
+    //     navigator.geolocation.getCurrentPosition(success);
+    //     //send geolocation location to map
+    //     function success(position) {
+    //         indeedApp.centerLat = position.coords.latitude;
+    //         indeedApp.centerLon = position.coords.longitude;
+    //         initMap(indeedApp.centerLat,indeedApp.centerLon)
+    //     };
+    // }
 
     // Display data on the page
     indeedApp.displayInfo = function(jobs) {
@@ -106,6 +101,8 @@
                 $('iframe').attr("src", "");
             })
 
+            // the following was our original paired programming efforts on integrating google maps
+
             // $('.showMapBtn').on('click', function(){
             //     var jobCompany = $(this).data('com');
             //     var jobCity = $(this).data('ci')
@@ -150,46 +147,44 @@
 
     indeedApp.events = function() {
 
-         $('.formMain').on('submit', function(e) {
+        $('.formMain').on('submit', function(e) {
             e.preventDefault();
             $('.results').empty().css('display', 'block').addClass('animated fadeIn');
-           var location = $('#location').val();
-           var title = $('#title').val();
-           indeedApp.location = location;
-           indeedApp.title = title;
-           indeedApp.getInfo(location,title);
-           // animation fade out
-           var animation = $('.formContainer').addClass('animated zoomOutDown');
-           $.when(animation).done(function(){
-           // display nav
-           $('.formContainerTop').css('display', 'flex')
-           // scroll down
-           var scroll = $('html, body').animate({
-            scrollTop: $("#nav").offset().top
-            }, 1000);
-           // take out title
-           $.when(scroll).done(function(){
-           $('.formContainer').css('display', 'none');
+            var location = $('#location').val();
+            var title = $('#title').val();
+            indeedApp.location = location;
+            indeedApp.title = title;
+            indeedApp.getInfo(location,title);
+            // animation fade out
+            var animation = $('.formContainer').addClass('animated zoomOutDown');
+            $.when(animation).done(function(){
+                // display nav
+                $('.formContainerTop').css('display', 'flex')
+                // scroll down
+                var scroll = $('html, body').animate({
+                    scrollTop: $("#nav").offset().top
+                }, 1000);
+                // take out title
+                $.when(scroll).done(function(){
+                    $('.formContainer').css('display', 'none');
+                });
             });
-           });
         });
 
-         $('.formTop').on('submit', function(e) {
+        $('.formTop').on('submit', function(e) {
             e.preventDefault();
             $('.results').empty();
-           var location = $('#locationTop').val();
-           var title = $('#titleTop').val();
-           indeedApp.location = location;
-           indeedApp.title = title;
-           indeedApp.getInfo(location,title);
+            var location = $('#locationTop').val();
+            var title = $('#titleTop').val();
+            indeedApp.location = location;
+            indeedApp.title = title;
+            indeedApp.getInfo(location,title);
         });
-
 
     }
 
     // var map;
     // function initMap() {
-
     //   var GeoLo = {lat:  indeedApp.centerLat, lng:  indeedApp.centerLon};
     //   map = new google.maps.Map(document.getElementById('map'), {
     //     center: {lat: indeedApp.centerLat, lng: indeedApp.centerLon},
@@ -197,13 +192,9 @@
     //   });
     // }
 
-  
-
     // Start app
     indeedApp.init = function() {
         indeedApp.events();
-        // indeedApp.getGeocode();
-        // initMap();
     }
 
     $(function() {
