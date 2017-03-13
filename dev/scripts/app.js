@@ -180,7 +180,6 @@
             indeedApp.title = title;
             indeedApp.getInfo(location,title);
         });
-
     }
 
     // var map;
