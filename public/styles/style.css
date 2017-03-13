@@ -165,14 +165,15 @@ iframe {
 .results {
   animation-duration: 2s;
   width: 60%;
-  margin: 180px auto 0 auto; }
-}
+  margin: 40px auto 0 auto; }
 
-#nav {
-  animation-duration: 2s;
-  animation-delay: .5s; }
+@media (max-width: 768px) {
+  .results {
+    width: 80%; } }
 
-
+@media (max-width: 480px) {
+  .results {
+    width: 95%; } }
 
 .resultsItem {
   margin: 40px 0 40px 0;
@@ -186,12 +187,25 @@ iframe {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding-bottom: 5px; }
+  @media (max-width: 768px) {
+    .resultsItem h3 {
+      font-size: 1.8rem; } }
+  @media (max-width: 480px) {
+    .resultsItem h3 {
+      font-size: 1.5rem;
+      max-width: 260px; } }
   .resultsItem h4 {
     color: #000000;
     opacity: 0.5;
-    font-size: 18px;
+    font-size: 1.2rem;
     text-transform: uppercase;
     padding-bottom: 5px; }
+  @media (max-width: 768px) {
+    .resultsItem h4 {
+      font-size: 1rem; } }
+  @media (max-width: 480px) {
+    .resultsItem h4 {
+      font-size: .8rem; } }
   .resultsItem a {
     text-decoration: none;
     background-color: #f8d70c;
@@ -228,6 +242,10 @@ iframe {
     margin-bottom: 5px;
     float: right; }
 
+#nav {
+  animation-duration: 2s;
+  animation-delay: .5s; }
+
 body {
   font-family: "Roboto", sans-serif; }
 
@@ -251,8 +269,6 @@ body {
   background-color: white;
   width: 100%;
   display: none;
-  -ms-flex-direction: row;
-      flex-direction: row;
   -ms-flex-pack: start;
       justify-content: flex-start;
   -ms-flex-align: center;
@@ -261,12 +277,22 @@ body {
   font-size: 20px;
   background: #fbfbfb;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.36); }
-  .formContainerTop h1 {
-    width: 35%;
+  @media (max-width: 480px) {
+    .formContainerTop .formContainerTop {
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -ms-flex-direction: column;
+          flex-direction: column; } }
+  .formContainerTop h2 {
+    -ms-flex-positive: 2;
+        flex-grow: 2;
     text-align: left;
     font-family: "Oswald", sans-serif;
-    font-size: 50px;
+    font-size: 2.5rem;
     text-transform: uppercase; }
+  @media (max-width: 480px) {
+    .formContainerTop h2 {
+      font-size: 2rem; } }
   .formContainerTop form {
     -ms-flex-pack: center;
         justify-content: center; }
