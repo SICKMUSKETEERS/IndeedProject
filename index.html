@@ -11,9 +11,10 @@
 	<link rel="stylesheet" href="public/styles/style.css">
 </head>
 <body>
+	<!-- Form --> 
 	<div class="formContainer animated fadeIn">
 		<h1>Remotely</h1>
-		<h3 class="tagline">Find your dream job in Canada!</h3>
+		<h3 class="tagline">Find your dream job in Canada</h3>
 		<form class="formMain">
 			<label for="location">Where?</label>
 			<input type="text" required placeholder="Ex: Toronto" name="location" id="location">
@@ -25,6 +26,7 @@
 		</form>
 	</div>
 
+	<!-- Form for Minimized View / When Form Completes --> 
 	<div class="formContainerTop animated fadeIn" id="nav">
 		<h2>Remotely</h2>
 		<form class="formTop">
@@ -35,13 +37,19 @@
 			<button type="submit" class="submit">Find a job!</button>
 		</form>
 	</div>
-		<div class="results"></div>
-		<div class="mapContainer">
-				<button class="closeMap"><i class="fa fa-times exit-modal"></i></button>
-			<div class="map">
-				<iframe frameborder="0"></iframe>
-			</div>	
-		</div>
+
+	<!-- Results --> 
+	<div class="results"></div>
+		
+	<!-- Map Module --> 
+	<div class="mapContainer">
+		<button class="closeMap"><i class="fa fa-times exit-modal"></i></button>
+		<div class="map">
+			<iframe frameborder="0"></iframe>
+		</div>	
+	</div>
+
+	<!-- Scripts --> 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAegBrQP91Sm1VWrf3tKfhmH9xCgAt9AJk"
 	async defer></script>
