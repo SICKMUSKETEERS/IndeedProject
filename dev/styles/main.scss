@@ -62,10 +62,16 @@ body {
     padding: 10px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
     border: 1px solid #d9d9d9;
-    border-radius: 30px;
-    color: $grey;
+    border-radius: 3px;
+    color: black;
 }
 
+input#location, input#locationTop,  input#titleTop{
+    margin-right: 20px;
+}
+label {
+    margin-right: 5px;
+}
 .sub{
 	display: flex;
     align-items: center;
@@ -87,3 +93,20 @@ button.submit{
     	// box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
     }
 
+@media (max-width: 670px) {
+	form.formMain {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    justify-content: center;
+	}
+
+	input#location{
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+	label{
+		margin-bottom: 7px;
+	}
+
+}

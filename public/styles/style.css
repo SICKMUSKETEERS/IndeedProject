@@ -276,8 +276,14 @@ body {
   padding: 10px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.26);
   border: 1px solid #d9d9d9;
-  border-radius: 30px;
-  color: #b7b7b7; }
+  border-radius: 3px;
+  color: black; }
+
+input#location, input#locationTop, input#titleTop {
+  margin-right: 20px; }
+
+label {
+  margin-right: 5px; }
 
 .sub {
   display: -ms-flexbox;
@@ -298,3 +304,19 @@ button.submit {
   text-shadow: 1px 2px 1px #b7b7b7;
   background-color: #f8d70c;
   color: white; }
+
+@media (max-width: 670px) {
+  form.formMain {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center; }
+  input#location {
+    margin-right: 0;
+    margin-bottom: 20px; }
+  label {
+    margin-bottom: 7px; } }
