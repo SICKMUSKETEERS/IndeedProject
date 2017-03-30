@@ -23,12 +23,22 @@
 	border-bottom: 1px solid $grey;
 	padding-bottom: 40px;
 
+	h4 {
+		margin-bottom: 20px;
+	}
+  
 	h3 { // 'job position'
+
 		font-family: $headingFont;
 		font-size: 2rem;
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		padding-bottom: 5px;
+	}
+  
+	p{
+		line-height: 1.67;
+		margin-bottom: 20px;
 	}
 
 	@media (max-width: 768px) {
@@ -66,8 +76,7 @@
 	a { // apply now
 		text-decoration: none;
 		background-color: $yellow;
-		text-shadow: 1px 2px 1px $grey;
-		color: $white;
+		color: black;
 		border-radius: 100px;
 		padding: 10px;
 		display: inline-block;
@@ -91,6 +100,38 @@
 		margin-left: 10px;
 		transition:.5s;
 	}
+}
+
+.resultsItem:last-child {
+    border-bottom: none;
+}
+
+.resultsTitleDate { 
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+
+	p { // date
+	background-color: $grey;
+	color: $white;
+	width: 100px;
+	padding: 2px;
+	text-align: center;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	float: right;
+	}
+}
+
+.resultsItem a:hover{
+ color: $yellow;
+ background-color: black;
+ border-width: 0px;
+}
+
+.resultsItem button:hover{
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
 
 	button:focus {
 		outline: none;
@@ -100,15 +141,6 @@
 		box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
 	}
 }
-
-// .resultsItem a:after {
-// 	background-image: url('../../assets/work.svg');
-// 	display: block;
-//   	content: ' ';
-//   	 background-size: 28px 28px;
-//   height: 28px;
-//   width: 28px;
-// }
 
 .resultsTitleDate { 
 	display: flex;
