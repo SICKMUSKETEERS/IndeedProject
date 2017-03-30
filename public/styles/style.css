@@ -223,6 +223,9 @@ iframe {
     margin-top: 10px;
     border: 1px solid #f8d70c;
     transition: .5s; }
+  .resultsItem a:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    color: black; }
   .resultsItem button {
     border: 1px solid #000000;
     border-radius: 100px;
@@ -230,6 +233,10 @@ iframe {
     padding: 10px;
     margin-left: 10px;
     transition: .5s; }
+  .resultsItem button:focus {
+    outline: none; }
+  .resultsItem button:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25); }
 
 .resultsItem:last-child {
   border-bottom: none; }
@@ -300,6 +307,17 @@ h3.tagline {
   text-align: center;
   font-size: 30px; }
 
+  .formContainer h3 {
+    color: #f8d70c;
+    font-family: "Oswald", sans-serif;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 0; }
+
 .formContainerTop {
   background: #f8d70c;
   width: 100%;
@@ -311,15 +329,13 @@ h3.tagline {
   padding: 10px 20px 20px 20px;
   font-size: 20px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.36); }
+  .formContainerTop h2 {
+    font-size: 3.3rem; }
 
 @media (max-width: 900px) {
   .formContainerTop {
     -ms-flex-direction: column;
-        flex-direction: column; }
-    .formContainerTop h2 {
-      font-size: 2.4rem; }
-  .formTop {
-    margin-top: 10px; } }
+        flex-direction: column; } }
 
 @media (max-width: 505px) {
   .formContainerTop {
@@ -336,33 +352,39 @@ h3.tagline {
     -ms-flex-direction: column;
         flex-direction: column; } }
 
-h2 {
+.formContainerTop h2, .formContainer h2 {
   -ms-flex-positive: 2;
       flex-grow: 2;
   text-align: left;
   font-family: "Oswald", sans-serif;
-  font-size: 2.5rem;
   text-transform: uppercase; }
 
+@media (max-width: 900px) {
+  .formContainerTop h2 {
+    font-size: 2.5rem; } }
+
 @media (max-width: 480px) {
-  h2 {
+  .formContainerTop h2 {
     font-size: 2rem; } }
 
 form {
   -ms-flex-pack: center;
       justify-content: center; }
 
-input#title, input#titleTop {
-  background-image: url(../../assets/work.svg);
+@media (max-width: 900px) {
+  .formTop {
+    margin-top: 10px; } }
+
+input#title, input#titleTop, input#location, input#locationTop {
   background-size: 25px;
   background-repeat: no-repeat;
   background-position: 3% 50%; }
 
+input#title, input#titleTop {
+  background-image: url("../../assets/work.svg"); }
+
 input#location, input#locationTop {
-  background-image: url(../../assets/world.svg);
-  background-size: 25px;
-  background-repeat: no-repeat;
-  background-position: 3% 50%; }
+  background-image: url("../../assets/world.svg"); }
 
 .formMain input, .formContainerTop input {
   padding: 10px 0px 10px 40px;
@@ -375,6 +397,19 @@ input#location, input#locationTop {
   .formContainerTop input {
     width: 150px;
     font-size: 17px; } }
+
+@media (max-width: 670px) {
+  .formMain {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center; }
+  label {
+    margin-bottom: 7px; } }
 
 @media (max-width: 505px) {
   .formMain input, .formContainerTop input {
@@ -389,7 +424,9 @@ input#location, input#locationTop, input#titleTop {
 
 @media (max-width: 670px) {
   input#location, input#locationTop, input#titleTop {
-    margin-right: 10px; } }
+    margin-right: 10px; }
+  input#location {
+    margin-bottom: 20px; } }
 
 @media (max-width: 505px) {
   input#locationTop {
@@ -431,16 +468,17 @@ button.submit:hover {
   color: black;
   box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3); }
 
-@media (max-width: 1140px) {
+@media (max-width: 1165px) {
   button.submit {
     width: 150px;
-    padding: 8px;
+    padding: 13px;
     font-size: 0.8em; } }
 
-@media (max-width: 670px) {
+@media (max-width: 680px) {
   button.submit {
     display: block;
     margin: 15px auto 0 auto; } }
+
 
 @media (max-width: 690px) {
   form.formMain {
@@ -474,3 +512,4 @@ footer {
   footer a:link, footer a:visited {
     color: #f8d70c;
     text-decoration: none; }
+
