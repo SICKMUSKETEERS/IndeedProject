@@ -2,14 +2,14 @@
     var indeedApp = {};
 
     indeedApp.apiKey = '1211867702868069'
-    indeedApp.apiUrl = 'http://api.indeed.com/ads/apisearch'
+    indeedApp.apiUrl = 'https://api.indeed.com/ads/apisearch'
     indeedApp.googleKey = 'AIzaSyBTN4GtBR709ug6SMg-Sbr55JZvv5ctXys'
 
     // Make AJAX request with user inputted data
     indeedApp.getInfo = function(location, title) {
 
     indeedApp.allJobs = $.ajax({
-            url: 'http://proxy.hackeryou.com',
+            url: 'https://proxy.hackeryou.com',
             dataType: 'json',
             method:'GET',
             data: {
