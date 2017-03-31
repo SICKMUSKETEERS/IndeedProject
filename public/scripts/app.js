@@ -7,11 +7,6 @@ indeedApp.apiKey = '1211867702868069';
 indeedApp.apiUrl = 'http://api.indeed.com/ads/apisearch';
 indeedApp.googleKey = 'AIzaSyBTN4GtBR709ug6SMg-Sbr55JZvv5ctXys';
 
-// // Collect user input
-// indeedApp.collectInfo = function() {
-
-// }
-
 // Make AJAX request with user inputted data
 indeedApp.getInfo = function (location, title) {
 
@@ -106,6 +101,8 @@ indeedApp.displayInfo = function (jobs) {
         $('iframe').attr("src", "");
     });
 
+    // the following was our original paired programming efforts on integrating google maps
+
     // $('.showMapBtn').on('click', function(){
     //     var jobCompany = $(this).data('com');
     //     var jobCity = $(this).data('ci')
@@ -187,7 +184,6 @@ indeedApp.events = function () {
 
 // var map;
 // function initMap() {
-
 //   var GeoLo = {lat:  indeedApp.centerLat, lng:  indeedApp.centerLon};
 //   map = new google.maps.Map(document.getElementById('map'), {
 //     center: {lat: indeedApp.centerLat, lng: indeedApp.centerLon},
@@ -195,12 +191,9 @@ indeedApp.events = function () {
 //   });
 // }
 
-
 // Start app
 indeedApp.init = function () {
     indeedApp.events();
-    // indeedApp.getGeocode();
-    // initMap();
 };
 
 $(function () {
