@@ -77,9 +77,12 @@ h3.tagline{
 	}
 }
 
-	@media (max-width: 900px) {
+	@media (max-width: 980px) {
 		.formContainerTop {
 			flex-direction: column;
+		}
+		.resultsTitleDate{
+			flex-direction:column-reverse;
 		}
 	}
 
@@ -197,13 +200,13 @@ input#location, input#locationTop, input#titleTop {
 		}
 	}
 
-	@media (max-width: 505px) {
+	@media (max-width: 530px) {
 		input#locationTop {
 			width: 100px;
 		}
 
 		input#titleTop { 
-			width: 120px;
+			width: 100px;
 		}
 	}
 

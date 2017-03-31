@@ -34,6 +34,7 @@
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		padding-bottom: 5px;
+		max-width: 500px;
 	}
   
 	p{
@@ -112,17 +113,17 @@
 	justify-content: space-between;
 
 	p { // date
-	background-color: $grey;
-	color: $white;
-	width: 100px;
-	padding: 2px;
-	text-align: center;
-	border-radius: 5px;
-	margin-bottom: 5px;
-	margin-top: 10px;
-	float: right;
+		background-color: $grey;
+		color: $white;
+		width: 100px;
+		padding: 2px;
+		text-align: center;
+		border-radius: 5px;
+		margin-bottom: 5px;
 	}
 }
+
+
 
 .resultsItem a:hover{
  color: $yellow;
@@ -139,22 +140,5 @@ box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
 
 	button:hover {
 		box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
-	}
-}
-
-.resultsTitleDate { 
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-
-	p { // date
-		background-color: $grey;
-		color: $white;
-		width: 100px;
-		padding: 2px;
-		text-align: center;
-		border-radius: 5px;
-		margin-bottom: 5px;
-		float: right;
 	}
 }
