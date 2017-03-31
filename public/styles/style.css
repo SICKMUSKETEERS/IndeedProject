@@ -233,10 +233,6 @@ iframe {
     padding: 10px;
     margin-left: 10px;
     transition: .5s; }
-  .resultsItem button:focus {
-    outline: none; }
-  .resultsItem button:hover {
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25); }
 
 .resultsItem:last-child {
   border-bottom: none; }
@@ -266,6 +262,27 @@ iframe {
 
 .resultsItem button:hover {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25); }
+  .resultsItem button:hover button:focus {
+    outline: none; }
+  .resultsItem button:hover button:hover {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25); }
+
+.resultsTitleDate {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between; }
+  .resultsTitleDate p {
+    background-color: #b7b7b7;
+    color: #ffffff;
+    width: 100px;
+    padding: 2px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    float: right; }
 
 #nav {
   animation-duration: 2s;
@@ -307,7 +324,9 @@ h3.tagline {
   text-align: center;
   font-size: 30px; }
 
-  .formContainer h3 {
+.formContainerTop {
+  background: #f8d70c; }
+  .formContainerTop h3 {
     color: #f8d70c;
     font-family: "Oswald", sans-serif;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
@@ -319,7 +338,6 @@ h3.tagline {
     padding-top: 0; }
 
 .formContainerTop {
-  background: #f8d70c;
   width: 100%;
   display: none;
   -ms-flex-pack: start;
@@ -479,7 +497,6 @@ button.submit:hover {
     display: block;
     margin: 15px auto 0 auto; } }
 
-
 @media (max-width: 690px) {
   form.formMain {
     display: -ms-flexbox;
@@ -512,4 +529,3 @@ footer {
   footer a:link, footer a:visited {
     color: #f8d70c;
     text-decoration: none; }
-
