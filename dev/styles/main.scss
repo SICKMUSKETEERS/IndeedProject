@@ -197,13 +197,13 @@ input#location, input#locationTop, input#titleTop {
 		}
 	}
 
-	@media (max-width: 505px) {
+	@media (max-width: 530px) {
 		input#locationTop {
 			width: 100px;
 		}
 
 		input#titleTop { 
-			width: 120px;
+			width: 100px;
 		}
 	}
 

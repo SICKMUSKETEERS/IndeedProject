@@ -446,11 +446,11 @@ input#location, input#locationTop, input#titleTop {
   input#location {
     margin-bottom: 20px; } }
 
-@media (max-width: 505px) {
+@media (max-width: 530px) {
   input#locationTop {
     width: 100px; }
   input#titleTop {
-    width: 120px; } }
+    width: 100px; } }
 
 .formMain label, .formContainerTop label {
   margin-right: 5px;
